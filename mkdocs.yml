@@ -1,0 +1,26 @@
+site_name: python-ccb
+site_description: This package provides a simple python interface for interacting with ClearCheckBook
+site_author: Óscar Curero
+extra_css:
+    - extra.css
+theme:
+    name: readthedocs
+    titles_only: true
+nav:
+    - Home: index.md
+    - Usage: usage.md
+    - Reference: reference.md
+    - Contributing: contributing.md
+    - Credits: credits.md
+    - History: history.md
+
+markdown_extensions:
+    - admonition
+    - markdown_include.include:
+        base_path: docs
+        throwException: true
+
+plugins:
+    - search
+    - mkdocstrings
+    - autorefs

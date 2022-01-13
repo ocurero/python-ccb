@@ -1,0 +1,33 @@
+image: alpine/old
+packages:
+  - findutils
+  - linux-headers
+  - libffi-dev
+  - libressl-dev
+  - python3
+  - python3-dev
+  - py3-pip
+  - py3-requests
+# Enable this to debug
+# shell: true
+secrets:
+  - 262ecd1a-0945-48f7-920f-367c59e107bc # SSH
+  - b350891a-7614-4672-ab98-b8dfd5b1bb46 # RTD
+sources:
+   - hg+ssh://hg@hg.sr.ht/~ocurero/python-ccb
+tasks:
+  - sync_github: |
+      cd python-ccb
+      sudo pip3 -q install hg-git
+      sudo pip3 -q install dulwich
+      echo "[extensions]" >>./.hg/hgrc
+      echo "hgext.bookmarks =" >>./.hg/hgrc
+      echo "hggit = " >>./.hg/hgrc
+      ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+      hg bookmark -r default master # so a ref gets created
+      hg push git+ssh://git@github.com/ocurero/python-ccb.git || hg push git+ssh://git@github.com/ocurero/python-ccb.git | grep "no changes found"
+  - clone_github: |
+      rm -R python-ccb && git clone git@github.com:ocurero/python-ccb.git
+  - update_readthedocs: |
+      curl -X POST -d @/home/build/RTD_TOKEN https://readthedocs.org/api/v2/webhook/python-ccb/188476/
+triggers: null
