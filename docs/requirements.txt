@@ -1,3 +1,6 @@
+mkdocs-autorefs==0.3.0; python_version >= "3.6" and python_version < "4.0" \
+    --hash=sha256:2f89556eb2107d72e3aff41b04dcaaf1125d407a33b8027fbc982137d248d37d \
+    --hash=sha256:261875003e49b5d708993fd2792a69d624cbc8cf7de49e96c81d3d9825977ca4
 mkdocstrings==0.16.2; python_version >= "3.6" \
     --hash=sha256:671fba8a6c7a8455562aae0a3fa85979fbcef261daec5b2bac4dd1479acc14df \
     --hash=sha256:3d8a86c283dfa21818d5b9579aa4e750eea6b5c127b43ad8b00cebbfb7f9634e

@@ -12,7 +12,7 @@ packages:
 # shell: true
 secrets:
   - 262ecd1a-0945-48f7-920f-367c59e107bc # SSH
-  - b350891a-7614-4672-ab98-b8dfd5b1bb46 # RTD
+  - d91759b0-0a31-4f60-a6a3-056ce1861706 # RTD
 sources:
    - hg+ssh://hg@hg.sr.ht/~ocurero/python-ccb
 tasks:
