@@ -70,7 +70,7 @@ class ClearCheckBook:
                               b64encode(password.encode('latin1')))
 
     def get_accounts(self, is_overview=False, all=True):
-        """Get all accounts
+        """Get all accounts.
 
         Args:
             is_overview (bool): `True` to return only the accounts with a balance. `False`
@@ -91,7 +91,7 @@ class ClearCheckBook:
                 for account_data in response.json()['data']]
 
     def get_account(self, name=None, account_id=None):
-        """Get an account
+        """Get an account.
 
         Args:
             name (str): name of the account
@@ -123,7 +123,7 @@ class ClearCheckBook:
                                     self.get_currency(account_data['currency_code']))
 
     def get_transaction(self, id):
-        """Get a transaction
+        """Get a transaction.
 
         Args:
             id (int): ID of the transaction
@@ -145,7 +145,7 @@ class ClearCheckBook:
 
     def get_transactions(self, account=None, created_at=None, from_trans=None,
                          order=None, order_direction=None, separate_splitsid=None):
-        """Get all transactions
+        """Get all transactions. This method returns an `Transaction` interator.
 
         Args:
             account (Account): Account to get transactions from. Defaults to all accounts.
@@ -161,7 +161,7 @@ class ClearCheckBook:
                 parents. If you're trying to retrieve newly added transactions, set this to
                 `True` or else split children will inherit the parent's `created_at` value
         Returns:
-            List of `Transaction`
+            Iterator
         """
 
         limit = 250

@@ -17,7 +17,7 @@ The simplest use case is getting all transactions:
 import ccb
 
 session = ccb.ClearCheckBook('user', 'passwd')
-for transaction in self.get_transactions():
+for transaction in session.get_transactions():
     print(transaction)
 
 ```
@@ -30,7 +30,7 @@ import ccb
 
 session = ccb.ClearCheckBook('user', 'passwd')
 account = session.get_account('My Account')
-for transaction in self.get_transactions(account=account):
+for transaction in session.get_transactions(account=account):
     print(f'Transaction: {transaction.description}, amount: {transaction.amount}')
 
 ```
@@ -77,7 +77,7 @@ import ccb
 
 session = ccb.ClearCheckBook('user', 'passwd')
 
-for transaction in self.get_transactions():
+for transaction in session.get_transactions():
     if transaction.description == 'Thing I'm Looking For':
       break
 
