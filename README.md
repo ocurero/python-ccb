@@ -20,7 +20,7 @@ Using **python-ccb** is very simple:
     import ccb
 
     session = ccb.ClearCheckBook('user', 'passwd')
-    account = ccb.get_account('My Account')
+    account = session.get_account('My Account')
     new_tran = ccb.Transaction('Something', 50, ccb.WITHDRAW, account=account)
     session.insert_transaction(new_tran)
 
