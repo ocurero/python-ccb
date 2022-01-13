@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "python-ccb"
+name = "ccb"
 version = "1"
 description = "Python wrapper for clearcheckbook"
 authors = ["Oscar Curero <oscar@curero.es>"]

@@ -17,11 +17,11 @@ Using **python-ccb** is very simple:
 
 ```python
 
-    import ccb
+    import python_ccb
 
-    session = ccb.ClearCheckBook('user', 'passwd')
+    session = python_ccb.ClearCheckBook('user', 'passwd')
     account = session.get_account('My Account')
-    new_tran = ccb.Transaction('Something', 50, ccb.WITHDRAW, account=account)
+    new_tran = python_ccb.Transaction('Something', 50, python_ccb.WITHDRAW, account=account)
     session.insert_transaction(new_tran)
 
 ```

@@ -1,31 +1,31 @@
 # Reference
 
-::: ccb.ClearCheckBook
+::: python_ccb.ClearCheckBook
     rendering:
         show_root_heading: true
 
-::: ccb.Account
+::: python_ccb.Account
     selection:
         filters: ["!^_"]
     rendering:
         show_root_heading: true
         show_source: false
 
-::: ccb.Category
+::: python_ccb.Category
     selection:
         filters: ["!^_"]
     rendering:
         show_root_heading: true
         show_source: false
 
-::: ccb.Currency
+::: python_ccb.Currency
     selection:
         filters: ["!^_"]
     rendering:
         show_root_heading: true
         show_source: false
 
-::: ccb.Transaction
+::: python_ccb.Transaction
     selection:
         filters: ["!^_"]
     rendering:
@@ -34,7 +34,8 @@
 
 # Account and transaction constants
 
-The following account and transaction codes are numeric constants importable from `ccb`.
+The following account and transaction codes are numeric constants importable
+from `python_ccb`.
 
 |   Constant   |      Description                                               |
 |:------------ |:-------------------------------------------------------------- |
