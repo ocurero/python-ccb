@@ -1,2 +1,5 @@
+mkdocstrings==0.16.2; python_version >= "3.6" \
+    --hash=sha256:671fba8a6c7a8455562aae0a3fa85979fbcef261daec5b2bac4dd1479acc14df \
+    --hash=sha256:3d8a86c283dfa21818d5b9579aa4e750eea6b5c127b43ad8b00cebbfb7f9634e
 markdown-include==0.6.0 \
     --hash=sha256:6f5d680e36f7780c7f0f61dca53ca581bd50d1b56137ddcd6353efafa0c3e4a2
