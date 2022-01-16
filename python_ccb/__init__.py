@@ -50,7 +50,6 @@ class _ClearCheckBookSession(requests.Session):
         kwargs['params'] = {**kwargs.get('params', {}), **{'app_ref': self.app_ref}}
         kwargs['data'] = {**kwargs.get('data', {}), **{'app_ref': self.app_ref}}
         url = urljoin(self.prefix_url, url)
-        print(url, kwargs, args)
         return super().request(method, url, *args, **kwargs)
 
 
@@ -199,13 +198,13 @@ class ClearCheckBook:
     def _manage_transaction(self, method, transaction, data, from_account,
                             to_account, is_split, split_amounts, split_categories,
                             split_descriptions):
-        data['date'] = transaction.date.to_date_string()
+        data['date'] = transaction.date.to_date_string() if transaction.date else None
         data['amount'] = transaction.amount
         data['transaction_type'] = transaction.type.value
-        data['account_id'] = transaction.account_id
-        data['category_id'] = transaction.category_id
+        data['account_id'] = transaction.account.id
+        data['category_id'] = transaction.category.id
         data['description'] = transaction.description
-        data['jive'] = 'true' if transaction.jive else 'false'
+        data['jive'] = 1 if transaction.jive else 0
         data['from_account_id'] = from_account.id if from_account else None
         data['to_account_id'] = to_account.id if to_account else None
         data['check_num'] = transaction.check_num
@@ -591,7 +590,7 @@ class Transaction:
     date: pendulum.DateTime = field(converter=_conv_date, default=None, order=True)
     account: Account = field(eq=False, default=NO_ACCOUNT, repr=False)
     category: Category = field(eq=False, default=NO_CATEGORY, repr=False)
-    jive: bool = field(eq=False, default=None, repr=False)
+    jive: bool = field(eq=False, default=False, repr=False)
     specialstatus: int = field(eq=False, default=None, repr=False)
     parent: object = field(eq=False, default=None, repr=False)
     related_transfer: int = field(eq=False, default=None, repr=False)
